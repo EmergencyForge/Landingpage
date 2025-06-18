@@ -31,145 +31,101 @@
 
 <body>
     <main>
+        <nav>
+            <div class="layoutboundary">
+                <a href="/" class="logo">
+                    <img src="/assets/img/defaultLogo.webp" alt="intraRP Logo" height="48px" width="auto" />
+                </a>
+                <!-- <ul class="nav-links">
+                    <li><a href="/#hero">Startseite</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/#download">Download</a></li>
+                    <li><a href="/#kontakt">Kontakt</a></li>
+                </ul> -->
+                <div class="nav-buttons">
+                    <a href="https://github.com/intraRP/" class="btn btn-primary" target="_blank" rel="nofollow"
+                        data-text="GitHub"><span>GitHub</span></a>
+                    <a href="https://discord.intrarp.de" class="btn btn-primary" target="_blank" rel="nofollow"
+                        data-text="Discord"><span>Discord</span></a>
+                </div>
+            </div>
+        </nav>
         <section id="hero">
-            <div class="hero__text">
-                <h1><span class="searching__for"><span class="searching__for-text"></span></span><br>für deinen
-                    FiveM/RP-Server</h1>
-                <div class="hero__buttons">
-                    <a href="https://github.com/intraRP/intraRP" class="btn" target="_blank" rel="nofollow"><i
-                            class="fa-brands fa-github"></i> Herunterladen</a>
-                    <a href="#content" class="btn btn-secondary"><i class="fa-solid fa-circle-info"></i> Mehr
-                        erfahren</a>
+            <div class="layoutboundary">
+                <h1>INTRARP<br><span class="text-gradient">FRAKTIONSVERWALTUNG</span></h1>
+                <p>Das Intranet für deine Fraktionen (Feuerwehr, Rettungsdienst). Allround-Fraktionsverwaltung und das
+                    Open-Source & kostenlos!</p>
+            </div>
+        </section>
+        <section id="features">
+            <div class="layoutboundary">
+                <h1 class="text-gradient">Was macht intraRP aus?</h1>
+                <div class="features">
+                    <div class="feature">
+                        <i class="fa-solid fa-code text-gradient"></i>
+                        <h2>Open-Source</h2>
+                        <p>intraRP ist ein Open-Source-Projekt, das von der Community unterstützt wird.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-sliders text-gradient"></i>
+                        <h2>EASY-PEASY</h2>
+                        <p>Das ganze System ist einfach aufzusetzen und zu konfigurieren.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fa-solid fa-user-doctor text-gradient"></i>
+                        <h2>Ingame</h2>
+                        <p>Mittels intraTab ist auch eine Verbindung in FiveM möglich.</p>
+                    </div>
                 </div>
             </div>
         </section>
-        <section id="content">
-            <img src="/assets/img/spacer.webp" alt="intraRP Spacer" class="spacer" style="margin-bottom: 1rem;">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h2 id="die-vorteile-von-intrarp"><a href="#die-vorteile-von-intrarp"><i
-                                    class="fa-solid fa-hashtag"></i></a> Die Vorteile von intraRP</h2>
-                        <p>Eine umfassende Fraktionsverwaltung, die speziell für Rollenspiel-Server wie FiveM entwickelt
-                            wurde. Sie bietet eine Vielzahl von Funktionen, um die Verwaltung von Fraktionen wie
-                            Feuerwehr und Rettungsdienst zu erleichtern.</p>
-                        <div class="feature__box">
-                            <ul>
-                                <li>Open-Source und kostenlos</li>
-                                <li>Einfach zu installieren und zu konfigurieren</li>
-                                <li>Login per Discord</li>
-                                <li>Regelmäßige Updates und Community-Support</li>
-                                <li>Ingame-Verbindung mittels intraTab möglich</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="img-magnify-wrapper">
-                            <img src="/assets/img/preview/dashboard1.jpg" alt="Notfalltablet"
-                                class="content__img magnifiable">
-                            <div class="magnify-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <img src="/assets/img/spacer.webp" alt="intraRP Spacer" class="spacer" style="margin: 1rem auto;">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="img-magnify-wrapper">
-                            <img src="/assets/img/preview/enotf1.jpg" alt="Notfalltablet"
-                                class="content__img magnifiable">
-                            <div class="magnify-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                        </div>
-                    </div>
-                    <div class="col" style="text-align: end;">
-                        <h2 id="direkte-ingame-verbindung">Direkte Ingame-Verbindung <a
-                                href="#direkte-ingame-verbindung"><i class="fa-solid fa-hashtag"></i></a></h2>
-                        <p>Mit intraTab kannst du direkt im Spiel auf die Fraktionsverwaltung zugreifen. Das
-                            Ingame-Tablet ermöglicht es dir, direkt auf das Notfallprotokoll zuzugreifen. Wir
-                            ermöglichen dabei eine möglichst einfache Konfiguration um auch die zugreifenden Fraktionen
-                            gut festlegen zu können.</p>
-                    </div>
+        <section id="intratab">
+            <div class="layoutboundary">
+                <h1 class="text-gradient" style="margin-bottom:0">intraTab</h1>
+                <p style="margin-top:0; opacity: 0.8; max-width: 700px;">intraTab ist eine Ingame-Anwendung, die es dir
+                    ermöglicht,
+                    intraRP direkt im
+                    Spiel zu nutzen. So kannst du Rettungsdiensteinsätze dokumentieren ohne das Spiel verlassen zu
+                    müssen.</p>
+                <div style="text-align: center; width: 100%;">
+                    <img style="margin-bottom: 0; max-width: 80%;" src="/assets/img/irptab.png" alt="intraTab">
                 </div>
             </div>
         </section>
     </main>
     <footer>
-        <div style="max-width: 60%; margin: 0 auto;">
-            <p>&copy; 2025 intraRP. Alle Rechte vorbehalten.<br>intraRP stellt ein nicht-kommerzielles Projekt mit
-                keinerlei
-                Gewinnorientierung oder Möglichkeit zur Finanzierung dar, wir
-                verzichten daher auf die Angabe eines Impressums. Auf der Seite werden keine Daten verarbeitet. Bei
-                Anliegen
-                oder Rückfragen steht eine Kontakt-E-Mailadresse zur
-                Verfügung.</p>
-            <p>intraRP ist ein Open-Source-Projekt, das von der Community unterstützt wird. Besuche uns auf</p>
-            <div class="footer__links"><a href="https://github.com/intraRP" target="_blank" rel="nofollow"
-                    title="GitHub"><i class="fa-brands fa-github"></i></a> | <a href="https://discord.intrarp.de"
-                    target="_blank" rel="nofollow" title="Discord"><i class="fa-brands fa-discord"></i></a> | <a
-                    href="https://www.youtube.com/@intra_RP" target="_blank" rel="nofollow" title="YouTube"><i
-                        class="fa-brands fa-youtube"></i></a> | <a href="https://www.tiktok.com/@intrarp"
-                    target="_blank" rel="nofollow" title="TikTok"><i class="fa-brands fa-tiktok"></i></a> | <a
-                    href="mailto:kontakt@intrarp.de" title="E-Mail"><i class="fa-solid fa-envelope"></i></a>
+        <div class="footer__content">
+            <p>&copy; 2025 intraRP. Alle Rechte vorbehalten.</p>
+            <p>
+                intraRP ist ein nicht-kommerzielles Open-Source-Projekt. Es findet keine Datenverarbeitung statt, wir
+                verzichten daher auf ein Impressum.
+                Bei Anliegen: <a href="mailto:kontakt@intrarp.de">kontakt@intrarp.de</a>.
+            </p>
+            <p style="font-weight: bold;">Folge uns auf</p>
+            <div class="footer__links">
+                <a href="https://github.com/intraRP" title="GitHub" target="_blank"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://discord.intrarp.de" title="Discord" target="_blank"><i
+                        class="fa-brands fa-discord"></i></a>
+                <a href="https://www.youtube.com/@intra_RP" title="YouTube" target="_blank"><i
+                        class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@intrarp" title="TikTok" target="_blank"><i
+                        class="fa-brands fa-tiktok"></i></a>
             </div>
         </div>
     </footer>
-    <div id="imageModal" class="image-modal">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
     <script>
-        const words = [
-            "Fraktionsverwaltung",
-            "Personalverwaltung",
-            "Notfallprotokolle",
-            "Antragsverwaltung"
-        ];
+        const nav = document.querySelector('nav');
 
-        const el = document.querySelector('.searching__for-text');
-        let wordIndex = Math.floor(Math.random() * words.length);
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingSpeed = 90;
-        const deletingSpeed = 60;
-        const pauseBetweenWords = 1300;
-
-        function type() {
-            const currentWord = words[wordIndex];
-            if (isDeleting) {
-                el.textContent = currentWord.substring(0, charIndex--);
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                nav.classList.add('nav--scrolled');
             } else {
-                el.textContent = currentWord.substring(0, charIndex++);
+                nav.classList.remove('nav--scrolled');
             }
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                setTimeout(() => isDeleting = true, pauseBetweenWords);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-            }
-
-            const delay = isDeleting ? deletingSpeed : typingSpeed;
-            setTimeout(type, delay);
-        }
-
-        setTimeout(type, 100);
-    </script>
-    <script>
-        document.querySelectorAll('.img-magnify-wrapper .magnify-icon').forEach(icon => {
-            icon.addEventListener('click', function () {
-                const img = this.previousElementSibling;
-                const modal = document.getElementById("imageModal");
-                const modalImg = document.getElementById("modalImage");
-                modal.style.display = "flex";
-                modalImg.src = img.src;
-            });
-        });
-
-        document.querySelector('.close-modal').addEventListener('click', function () {
-            document.getElementById("imageModal").style.display = "none";
         });
     </script>
+
 </body>
 
 </html>
