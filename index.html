@@ -79,6 +79,33 @@
                 </div>
             </div>
         </section>
+        <section id="counters">
+            <div class="layoutboundary">
+                <h1 class="text-gradient">intraRP in Zahlen</h1>
+                <div class="counters">
+                    <div class="counter" data-target="200" data-suffix="+">
+                        <i class="fa-solid fa-code-merge counter-icon text-gradient"></i>
+                        <div class="counter-number">0</div>
+                        <div class="counter-label">Commits</div>
+                    </div>
+                    <div class="counter" data-target="4">
+                        <i class="fa-solid fa-user-bounty-hunter counter-icon text-gradient"></i>
+                        <div class="counter-number">0</div>
+                        <div class="counter-label">Mitwirkende</div>
+                    </div>
+                    <div class="counter" data-target="5" data-suffix="+">
+                        <i class="fa-solid fa-calendar-range counter-icon text-gradient"></i>
+                        <div class="counter-number">0</div>
+                        <div class="counter-label">Monate Entwicklung</div>
+                    </div>
+                    <div class="counter" data-target="1">
+                        <i class="fa-solid fa-flag-checkered counter-icon text-gradient"></i>
+                        <div class="counter-number">0</div>
+                        <div class="counter-label">ziel</div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="intratab">
             <div class="layoutboundary">
                 <h1 class="text-gradient" style="margin-bottom:0">intraTab</h1>
@@ -125,7 +152,50 @@
             }
         });
     </script>
+    <script>
+        const counters = document.querySelectorAll('.counter');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+
+        function animateCounter(counterElement) {
+            const target = parseInt(counterElement.getAttribute('data-target'));
+            const suffix = counterElement.getAttribute('data-suffix') || '';
+            const numberElement = counterElement.querySelector('.counter-number');
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += increment;
+
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                    numberElement.classList.remove('counting');
+                } else {
+                    numberElement.classList.add('counting');
+                }
+
+                const formattedNumber = Math.floor(current).toLocaleString('de-DE') + suffix;
+                numberElement.textContent = formattedNumber;
+            }, 16);
+        }
+    </script>
 </body>
 
 </html>

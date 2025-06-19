@@ -339,3 +339,106 @@ footer::before {
     justify-content: center;
   }
 }
+
+/* ===== Counters Section ===== */
+
+.counters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  .counters {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .counters {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.counter {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  color: #e0e4f1;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.counter:hover {
+  transform: translateY(-3px);
+}
+
+.counter-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.counter-number {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.counter:nth-child(even) .counter-number {
+  color: transparent;
+  -webkit-text-stroke: 2px #e0e4f1;
+}
+
+.counter:nth-child(odd) .counter-number {
+  color: #e0e4f1;
+}
+
+.counter-label {
+  font-size: 1.1rem;
+  color: #aeb4cf;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.counter-number.counting {
+  animation: pulse 0.1s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .features {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .feature {
+    padding: 1.5rem 1rem;
+  }
+  .counters {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .counter {
+    padding: 1.5rem 1rem;
+  }
+  .counter-number {
+    font-size: 2.5rem;
+  }
+  .counter-icon {
+    font-size: 2rem;
+  }
+}
