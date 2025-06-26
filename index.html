@@ -116,7 +116,34 @@
                     Spiel zu nutzen. So kannst du Rettungsdiensteinsätze dokumentieren ohne das Spiel verlassen zu
                     müssen.</p>
                 <div style="text-align: center; width: 100%;">
-                    <img style="margin-bottom: 0; max-width: 80%;" src="/assets/img/irptab.png" alt="intraTab">
+                    <div class="image-container">
+                        <img style="margin-bottom: 0; max-width: 80%;" src="/assets/img/irptab.png" alt="intraTab">
+
+                        <div class="hotspot" data-tooltip="tooltip1" style="top: 41%; right: 21.5%;"></div>
+                        <div class="hotspot" data-tooltip="tooltip2" style="top: 67%; right: 71%;"></div>
+                        <div class="hotspot" data-tooltip="tooltip3" style="top: 57%; right: 31%;"></div>
+
+                        <div class="tooltip" id="tooltip1">
+                            <button class="close-btn">&times;</button>
+                            <h3 class="text-gradient">Interaktive An-/Abmeldung</h3>
+                            <p>eNOTF bietet die Möglichkeit zur direkten Anmeldung auf ein Fahrzeug, hinterlegte Daten
+                                werden automatisch in Protokolle übernommen.</p>
+                        </div>
+
+                        <div class="tooltip" id="tooltip2">
+                            <button class="close-btn">&times;</button>
+                            <h3 class="text-gradient">Einsatzverwaltung</h3>
+                            <p>Angemeldete Fahrzeuge sehen eine Übersicht ihrer noch offenen und nicht freigegebenen
+                                Fahrzeuge.</p>
+                        </div>
+
+                        <div class="tooltip" id="tooltip3">
+                            <button class="close-btn">&times;</button>
+                            <h3 class="text-gradient">Schnellzugriff</h3>
+                            <p>In der Übersicht bieten sich Schnellzugriff-Knöpfe, mit diesen kann auch die
+                                Fahrzeug-Checkliste angezeigt werden.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -196,6 +223,93 @@
                 numberElement.textContent = formattedNumber;
             }, 16);
         }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hotspots = document.querySelectorAll('.hotspot');
+            const tooltips = document.querySelectorAll('.tooltip');
+            let activeTooltip = null;
+
+            hotspots.forEach(hotspot => {
+                hotspot.addEventListener('click', function (e) {
+                    e.stopPropagation();
+
+                    const tooltipId = this.getAttribute('data-tooltip');
+                    const tooltip = document.getElementById(tooltipId);
+
+                    tooltips.forEach(t => {
+                        if (t !== tooltip) {
+                            t.classList.remove('show');
+                        }
+                    });
+
+                    if (activeTooltip === tooltip && tooltip.classList.contains('show')) {
+                        tooltip.classList.remove('show');
+                        activeTooltip = null;
+                    } else {
+                        positionTooltip(tooltip, this);
+                        tooltip.classList.add('show');
+                        activeTooltip = tooltip;
+                    }
+                });
+            });
+
+            document.querySelectorAll('.close-btn').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const tooltip = this.closest('.tooltip');
+                    tooltip.classList.remove('show');
+                    activeTooltip = null;
+                });
+            });
+
+            document.addEventListener('click', function () {
+                tooltips.forEach(tooltip => {
+                    tooltip.classList.remove('show');
+                });
+                activeTooltip = null;
+            });
+
+            function positionTooltip(tooltip, hotspot) {
+                const hotspotRect = hotspot.getBoundingClientRect();
+                const tooltipRect = tooltip.getBoundingClientRect();
+                const container = hotspot.closest('.image-container');
+                const containerRect = container.getBoundingClientRect();
+
+                tooltip.classList.remove('tooltip-above', 'tooltip-below');
+
+                let top = hotspot.offsetTop - tooltipRect.height - 15;
+                let left = hotspot.offsetLeft - (tooltipRect.width / 2);
+                let isAbove = true;
+
+                if (top < 0) {
+                    top = hotspot.offsetTop + 25;
+                    isAbove = false;
+                }
+
+                if (left < 0) {
+                    left = 10;
+                } else if (left + tooltipRect.width > container.offsetWidth) {
+                    left = container.offsetWidth - tooltipRect.width - 10;
+                }
+
+                if (isAbove) {
+                    tooltip.classList.add('tooltip-above');
+                } else {
+                    tooltip.classList.add('tooltip-below');
+                }
+
+                tooltip.style.top = top + 'px';
+                tooltip.style.left = left + 'px';
+            }
+
+            window.addEventListener('resize', function () {
+                if (activeTooltip && activeTooltip.classList.contains('show')) {
+                    const hotspot = document.querySelector(`[data-tooltip="${activeTooltip.id}"]`);
+                    positionTooltip(activeTooltip, hotspot);
+                }
+            });
+        });
     </script>
 </body>
 
