@@ -898,6 +898,10 @@ nav.nav--scrolled {
   background: linear-gradient(135deg, #f3c442, #eab308);
 }
 
+.team-member.marketing .team-avatar {
+  background: linear-gradient(135deg, #a558dd, #8145ac);
+}
+
 /* ===== Footer ===== */
 footer {
   background-color: #020924;
