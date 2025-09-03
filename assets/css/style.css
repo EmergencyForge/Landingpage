@@ -1,10 +1,10 @@
 :root {
   --primary-color: #ff0000;
   --secondary-color: #970f0f;
-  --background-color: #010618;
+  --background-color: #101010;
   --text-color: white;
   --link-hover-color: #ff0000;
-  --text-gradient: to bottom, white 0%, #93a2c7 100%;
+  --text-gradient: to bottom, white 0%, #b1b1b1 100%;
 }
 
 /* ===== Global Reset & Base ===== */
@@ -59,7 +59,6 @@ body {
 #hero .layoutboundary {
   position: relative;
   z-index: 2;
-  padding-top: 6rem;
   /* Keep original hero layout */
   display: flex;
   align-items: center;
@@ -95,21 +94,9 @@ h1 {
   display: inline-block;
 }
 
-.section-title::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-  border-radius: 2px;
-}
-
 .section-subtitle {
   font-size: 1.1rem;
-  color: #aeb4cf;
+  color: #878787;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -128,12 +115,13 @@ nav {
 }
 
 nav.nav--scrolled {
-  background-color: rgba(1, 6, 24, 0.95);
+  background-color: rgba(7, 7, 7, 0.95);
   padding: 0.3rem 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.logo img {
+.logo img,
+.logo-scrolled img {
   height: 48px;
   width: auto;
 }
@@ -202,8 +190,8 @@ nav.nav--scrolled {
   position: relative;
   display: flex;
   align-items: center;
-  height: 65vh;
-  background: url("/assets/img/ZXIF3iZ.png") center/cover no-repeat;
+  height: 100vh;
+  background: url("/assets/img/Untitled-1756928163667.webp") center/cover no-repeat;
   color: var(--text-color);
   overflow: hidden;
   z-index: 0;
@@ -213,7 +201,7 @@ nav.nav--scrolled {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, #010618 0%, rgba(1, 6, 24, 0.6) 40%, transparent 100%);
+  background: linear-gradient(to top, #070707 0%, rgba(23, 23, 23, 0.6) 40%, transparent 100%);
   z-index: 1;
 }
 
@@ -230,6 +218,30 @@ nav.nav--scrolled {
   opacity: 0.8;
 }
 
+#hero a.scroll-interaction {
+  color: var(--primary-color);
+  font-size: 3rem;
+  position: absolute;
+  bottom: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-shadow: 0 0 20px var(--primary-color);
+  z-index: 10000;
+  /* Animation */
+  animation: bounceUp 4s infinite;
+}
+
+@keyframes bounceUp {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, -15px);
+  }
+  60% {
+    transform: translate(-50%, -8px);
+  }
+}
 /* ===== Counters Section ===== */
 #counters {
   padding: 4rem 0;
@@ -303,7 +315,7 @@ nav.nav--scrolled {
 
 .counter-label {
   font-size: 1.1rem;
-  color: #aeb4cf;
+  color: #878787;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -329,17 +341,6 @@ nav.nav--scrolled {
   position: relative;
 }
 
-#features::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-  animation: scanline 8s linear infinite;
-}
-
 .features {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -357,13 +358,9 @@ nav.nav--scrolled {
   }
 }
 .feature {
-  background: linear-gradient(145deg, #0b0f2a, #070a1d);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
   padding: 2rem;
   text-align: center;
   color: #e0e4f1;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 10px 20px rgba(0, 0, 0, 0.4);
   transition: transform 0.4s, box-shadow 0.4s;
   position: relative;
 }
@@ -402,7 +399,7 @@ nav.nav--scrolled {
 .feature p {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #aeb4cf;
+  color: #878787;
 }
 
 /* ===== IntraTab Section ===== */
@@ -460,7 +457,7 @@ nav.nav--scrolled {
 }
 .tooltip {
   position: absolute;
-  background: linear-gradient(145deg, #0b0f2a, #070a1d);
+  background-color: #070707;
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
   padding: 1rem;
@@ -545,7 +542,6 @@ nav.nav--scrolled {
 /* ===== Team Section ===== */
 #team {
   padding: 4rem 0;
-  background: linear-gradient(180deg, var(--background-color) 0%, #020924 50%, var(--background-color) 100%);
   position: relative;
 }
 
@@ -581,21 +577,9 @@ nav.nav--scrolled {
   display: inline-block;
 }
 
-.team-section-title::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-  border-radius: 2px;
-}
-
 .team-section-subtitle {
   font-size: 1.1rem;
-  color: #aeb4cf;
+  color: #878787;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -610,13 +594,9 @@ nav.nav--scrolled {
 }
 
 .team-member {
-  background: linear-gradient(145deg, #0b0f2a, #070a1d);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 25px;
   padding: 2.5rem 2rem;
   text-align: center;
   color: #e0e4f1;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 15px 35px rgba(0, 0, 0, 0.6);
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
@@ -757,7 +737,7 @@ nav.nav--scrolled {
 
 .team-role {
   font-size: 1rem;
-  color: #aeb4cf;
+  color: #878787;
   font-weight: 500;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
@@ -790,7 +770,7 @@ nav.nav--scrolled {
 
 .stat-label {
   font-size: 0.8rem;
-  color: #aeb4cf;
+  color: #878787;
   text-transform: uppercase;
 }
 
@@ -852,7 +832,7 @@ nav.nav--scrolled {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #aeb4cf;
+  color: #878787;
   text-decoration: none;
   font-size: 1.2rem;
   transition: all 0.3s ease;
@@ -904,7 +884,7 @@ nav.nav--scrolled {
 
 /* ===== Footer ===== */
 footer {
-  background-color: #020924;
+  background-color: #070707;
   color: #ccd1e4;
   padding: 3rem 1rem 2rem;
   font-size: 0.9rem;
