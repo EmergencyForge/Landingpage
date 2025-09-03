@@ -360,7 +360,7 @@ nav.nav--scrolled {
 .feature {
   padding: 2rem;
   text-align: center;
-  color: #e0e4f1;
+  color: var(--text-color);
   transition: transform 0.4s, box-shadow 0.4s;
   position: relative;
 }
