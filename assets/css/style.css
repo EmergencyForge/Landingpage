@@ -284,7 +284,7 @@ nav.nav--scrolled {
 .counter {
   padding: 2.5rem 1.5rem;
   text-align: center;
-  color: #e0e4f1;
+  color: var(--text-color);
   transition: transform 0.3s ease;
   position: relative;
 }
@@ -306,11 +306,11 @@ nav.nav--scrolled {
 
 .counter:nth-child(even) .counter-number {
   color: transparent;
-  -webkit-text-stroke: 2px #e0e4f1;
+  -webkit-text-stroke: 2px var(--text-color);
 }
 
 .counter:nth-child(odd) .counter-number {
-  color: #e0e4f1;
+  color: var(--text-color);
 }
 
 .counter-label {
