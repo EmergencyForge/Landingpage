@@ -972,7 +972,7 @@ nav.nav--scrolled {
 
 /* ===== Footer ===== */
 footer {
-  background-color: #878787;
+  background-color: rgba(7, 7, 7, 0.95);
   color: #ccd1e4;
   padding: 3rem 1rem 2rem;
   font-size: 0.9rem;
@@ -1043,6 +1043,7 @@ footer::before {
   position: absolute;
   top: 0;
   left: 0;
+  margin-top: -6px;
   animation: scanline 3s linear infinite;
 }
 
