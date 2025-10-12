@@ -867,19 +867,23 @@ nav.nav--scrolled {
 
 /* Color variations for team members */
 .team-member.developer .team-avatar {
-  background: linear-gradient(135deg, #ff0000, #970f0f);
+  background: linear-gradient(135deg, #a558dd, #603380);
 }
 
 .team-member.community .team-avatar {
-  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  background: linear-gradient(135deg, #06b6d4, #047d92);
 }
 
 .team-member.support .team-avatar {
-  background: linear-gradient(135deg, #f3c442, #eab308);
+  background: linear-gradient(135deg, #ffc788, #a17e55);
 }
 
 .team-member.marketing .team-avatar {
-  background: linear-gradient(135deg, #a558dd, #8145ac);
+  background: linear-gradient(135deg, #fe9000, #a35c00);
+}
+
+.team-member.creative .team-avatar {
+  background: linear-gradient(135deg, #db5375, #8d354b);
 }
 
 /* ===== Footer ===== */
