@@ -261,7 +261,7 @@ nav.nav--scrolled {
 
 /* ===== Counters Section ===== */
 #counters {
-  padding: 4rem 0;
+  padding-top: 4rem;
   position: relative;
 }
 
@@ -362,7 +362,7 @@ nav.nav--scrolled {
 
 /* ===== Features Section ===== */
 #features {
-  padding: 4rem 0;
+  padding-top: 4rem;
   position: relative;
 }
 
@@ -575,12 +575,6 @@ nav.nav--scrolled {
 /* ===== Team Section ===== */
 #team {
   padding: 4rem 0;
-  // background: linear-gradient(
-  //   180deg,
-  //   var(--background-color) 0%,
-  //   #020924 50%,
-  //   var(--background-color) 100%
-  // );
   position: relative;
 }
 
@@ -648,21 +642,16 @@ nav.nav--scrolled {
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   width: 100%;
   margin: 0 auto;
 }
 
 .team-member {
-  // background: linear-gradient(145deg, #0b0f2a, #070a1d);
-  // border: 1px solid rgba(255, 255, 255, 0.05);
-  // border-radius: 25px;
-  padding: 2.5rem 2rem;
+  padding: 1.5rem 1rem;
   text-align: center;
   color: #e0e4f1;
-  // box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-  //   0 15px 35px rgba(0, 0, 0, 0.6);
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
@@ -745,10 +734,10 @@ nav.nav--scrolled {
 }
 
 .team-avatar {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 1rem;
   background: linear-gradient(
     135deg,
     var(--primary-color),
@@ -757,7 +746,7 @@ nav.nav--scrolled {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 2rem;
   color: white;
   font-weight: bold;
   border: 4px solid rgba(255, 255, 255, 0.1);
@@ -810,19 +799,19 @@ nav.nav--scrolled {
 }
 
 .team-name {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   color: white;
   position: relative;
   z-index: 1;
 }
 
 .team-role {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #878787;
   font-weight: 500;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
@@ -1105,7 +1094,7 @@ footer::before {
 /* ===== Responsive Design ===== */
 @media (max-width: 1200px) {
   .team-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
 
@@ -1121,7 +1110,6 @@ footer::before {
     text-align: center;
   }
 
-  /* Navigation and Hero keep their specific layouts even on mobile */
   nav .layoutboundary {
     flex-direction: row;
     justify-content: space-between;
@@ -1149,6 +1137,12 @@ footer::before {
   .section-title,
   .team-section-title {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -1301,4 +1295,156 @@ footer::before {
 
 section#intratab {
   padding-bottom: 0 !important;
+}
+
+.badge-new {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+#downloads {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.downloads {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+  padding: 2rem 4rem;
+  margin: 0 auto;
+  height: 14vh;
+  width: 100%;
+  align-items: center;
+  justify-content: end;
+  background-image: url("/assets/img/d40l0.webp");
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/assets/img/d40l0.webp");
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px) brightness(0.7);
+    z-index: 0;
+  }
+
+  a {
+    background-color: var(--text-color);
+    color: #000;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      background-color: #dadada;
+    }
+
+    &:nth-child(3) {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .downloads {
+    padding: 2rem 2rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .downloads {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+    height: auto;
+    min-height: 20vh;
+    justify-content: stretch;
+
+    a {
+      padding: 1rem;
+      text-align: center;
+
+      &:nth-child(3) {
+        grid-column: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .downloads {
+    padding: 1.5rem 1rem;
+
+    a {
+      padding: 0.9rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* ===== Navigation Links ===== */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .nav-links {
+    display: none;
+  }
 }
