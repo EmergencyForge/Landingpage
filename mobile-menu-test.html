@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Menu Debugger</title>
+    <style>
+        body {
+            font-family: monospace;
+            background: #000;
+            color: #0f0;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #ff0000;
+            border-bottom: 2px solid #ff0000;
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: #ffa500;
+            margin-top: 2rem;
+        }
+
+        .status {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            background: #1a1a1a;
+            border-left: 4px solid #0f0;
+        }
+
+        .error {
+            border-left-color: #ff0000;
+            color: #ff0000;
+        }
+
+        .warning {
+            border-left-color: #ffa500;
+            color: #ffa500;
+        }
+
+        .info {
+            border-left-color: #00bfff;
+            color: #00bfff;
+        }
+
+        code {
+            background: #1a1a1a;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            color: #ff0;
+        }
+
+        pre {
+            background: #1a1a1a;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+
+        button:hover {
+            background: #cc0000;
+        }
+
+        #results {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔧 Mobile Menu Debugger</h1>
+
+    <div class="status info">
+        <strong>Anleitung:</strong><br>
+        1. Öffne diese Datei auf deiner problematischen Seite im Browser<br>
+        2. Öffne die Browser-Konsole (F12)<br>
+        3. Klicke auf "Diagnose starten"<br>
+        4. Schicke mir die Ausgabe
+    </div>
+
+    <h2>Schnell-Diagnose</h2>
+    <button onclick="runDiagnostics()">🔍 Diagnose starten</button>
+    <button onclick="applyFix()">🔧 Fix anwenden (Test)</button>
+    <button onclick="clearResults()">🗑️ Ausgabe löschen</button>
+
+    <div id="results"></div>
+
+    <script>
+        function log(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.innerHTML = message;
+            results.appendChild(div);
+            console.log(`[${type.toUpperCase()}]`, message.replace(/<[^>]*>/g, ''));
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+
+        function runDiagnostics() {
+            clearResults();
+            log('<h2>📊 Diagnose läuft...</h2>');
+
+            // Check 1: Element existence
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelector('.nav-links');
+            const navButtons = document.querySelector('.nav-buttons');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const overlay = document.querySelector('.mobile-menu-overlay');
+
+            log(`<strong>✓ Check 1: Elemente vorhanden</strong>`, 'info');
+            log(`nav: ${nav ? '✓ Gefunden' : '✗ FEHLT'}`, nav ? 'info' : 'error');
+            log(`nav-links: ${navLinks ? '✓ Gefunden' : '✗ FEHLT'}`, navLinks ? 'info' : 'error');
+            log(`nav-buttons: ${navButtons ? '✓ Gefunden' : '✗ FEHLT'}`, navButtons ? 'info' : 'error');
+            log(`mobile-menu-toggle: ${mobileToggle ? '✓ Gefunden' : '✗ FEHLT'}`, mobileToggle ? 'info' : 'error');
+            log(`mobile-menu-overlay: ${overlay ? '✓ Gefunden' : '✗ FEHLT'}`, overlay ? 'info' : 'error');
+
+            // Check 2: CSS Classes
+            if (navLinks) {
+                const hasActive = navLinks.classList.contains('active');
+                log(`<strong>✓ Check 2: nav-links Status</strong>`, 'info');
+                log(`Active Class: ${hasActive ? '✓ Aktiv' : '○ Inaktiv'}`, hasActive ? 'warning' : 'info');
+
+                const computed = window.getComputedStyle(navLinks);
+                log(`Transform: <code>${computed.transform}</code>`, 'info');
+                log(`Display: <code>${computed.display}</code>`, 'info');
+                log(`Z-Index: <code>${computed.zIndex}</code>`, 'info');
+            }
+
+            if (navButtons) {
+                const hasActive = navButtons.classList.contains('active');
+                const parent = navButtons.parentElement;
+                log(`<strong>✓ Check 3: nav-buttons Status</strong>`, 'info');
+                log(`Active Class: ${hasActive ? '✓ Aktiv' : '○ Inaktiv'}`, hasActive ? 'warning' : 'info');
+                log(`Parent: <code>${parent ? parent.className : 'KEIN PARENT'}</code>`, 'info');
+                log(`Ist in nav-links? ${parent === navLinks ? '✓ JA' : '✗ NEIN'}`, parent === navLinks ? 'info' : 'error');
+
+                const computed = window.getComputedStyle(navButtons);
+                log(`Display: <code>${computed.display}</code>`, 'info');
+                log(`Position: <code>${computed.position}</code>`, 'info');
+            }
+
+            // Check 4: JavaScript functionality
+            log(`<strong>✓ Check 4: JavaScript</strong>`, 'info');
+            log(`Window Width: <code>${window.innerWidth}px</code>`, 'info');
+            log(`Mobile Mode: ${window.innerWidth <= 1000 ? '✓ JA (< 1000px)' : '○ NEIN (> 1000px)'}`, window.innerWidth <= 1000 ? 'info' : 'warning');
+
+            // Check 5: CSS Files
+            log(`<strong>✓ Check 5: CSS Dateien</strong>`, 'info');
+            const stylesheets = Array.from(document.styleSheets);
+            const relevantSheets = stylesheets.filter(sheet => {
+                try {
+                    return sheet.href && (sheet.href.includes('style') || sheet.href.includes('nav'));
+                } catch (e) {
+                    return false;
+                }
+            });
+
+            if (relevantSheets.length > 0) {
+                relevantSheets.forEach(sheet => {
+                    log(`CSS: <code>${sheet.href.split('/').pop()}</code>`, 'info');
+                });
+            } else {
+                log(`⚠️ Keine style.css gefunden - inline styles?`, 'warning');
+            }
+
+            // Check 6: Event Listeners
+            log(`<strong>✓ Check 6: Event Listeners</strong>`, 'info');
+            if (mobileToggle) {
+                const hasClick = mobileToggle.onclick !== null;
+                log(`Toggle hat Click Handler: ${hasClick ? '✓ JA' : '⚠️ Möglicherweise NEIN'}`, hasClick ? 'info' : 'warning');
+            }
+
+            // Final summary
+            log(`<strong>📋 Zusammenfassung</strong>`, 'info');
+            const issues = [];
+            if (!navButtons) issues.push('nav-buttons fehlt');
+            if (navButtons && navButtons.parentElement !== navLinks && window.innerWidth <= 1000) {
+                issues.push('nav-buttons nicht in nav-links verschoben');
+            }
+            if (!mobileToggle) issues.push('mobile-menu-toggle fehlt');
+
+            if (issues.length === 0) {
+                log(`✅ Keine offensichtlichen Probleme gefunden!`, 'info');
+                log(`Falls das Menü trotzdem nicht funktioniert, überprüfe:<br>
+                    - Browser-Cache (Strg+Shift+R / Cmd+Shift+R)<br>
+                    - CSS wird korrekt geladen<br>
+                    - JavaScript-Fehler in der Console`, 'warning');
+            } else {
+                log(`❌ Gefundene Probleme:<br>• ${issues.join('<br>• ')}`, 'error');
+            }
+        }
+
+        function applyFix() {
+            log('<strong>🔧 Versuche Fix anzuwenden...</strong>', 'info');
+
+            const navLinks = document.querySelector('.nav-links');
+            const navButtons = document.querySelector('.nav-buttons');
+
+            if (!navLinks || !navButtons) {
+                log('❌ Kann Fix nicht anwenden - Elemente fehlen', 'error');
+                return;
+            }
+
+            // Move buttons to mobile menu
+            if (window.innerWidth <= 1000 && navButtons.parentElement !== navLinks) {
+                navLinks.appendChild(navButtons);
+                navButtons.classList.add('active');
+                log('✅ nav-buttons in nav-links verschoben', 'info');
+            }
+
+            // Test toggle
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            if (toggle) {
+                toggle.click();
+                setTimeout(() => {
+                    log('✅ Menü sollte jetzt geöffnet sein - prüfe visuell!', 'info');
+                }, 500);
+            }
+        }
+    </script>
+</body>
+
+</html>

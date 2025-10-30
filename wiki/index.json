@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "systemanforderungen",
+    "title": "Systemanforderungen",
+    "description": "Mindestanforderungen für den Betrieb von intraRP",
+    "category": "getting-started",
+    "file": "systemanforderungen.md",
+    "tags": ["systemanforderungen", "php", "mysql", "server"],
+    "popular": true
+  },
+  {
+    "slug": "installation",
+    "title": "Installation von intraRP",
+    "description": "Schritt-für-Schritt Anleitung zur Installation von intraRP",
+    "category": "getting-started",
+    "file": "installation.md",
+    "tags": ["installation", "setup", "anleitung"],
+    "popular": true
+  },
+  {
+    "slug": "discord-app-erstellen",
+    "title": "Discord-Applikation erstellen",
+    "description": "Anleitung zur Erstellung einer Discord-Applikation für die Benutzer-Authentifizierung",
+    "category": "setup",
+    "file": "discord-app-erstellen.md",
+    "tags": ["discord", "oauth", "authentifizierung", "setup"],
+    "popular": true
+  }
+]

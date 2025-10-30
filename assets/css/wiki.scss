@@ -1,0 +1,1019 @@
+#wiki #hero {
+  height: 30vh;
+  background: linear-gradient(135deg, var(--background-color) 0%, #1a1a1a 100%);
+  padding: 6rem 0 3rem;
+  position: relative;
+}
+
+#wiki #hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(255, 0, 0, 0.1) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+#wiki #hero .hero-content {
+  text-align: center;
+  width: 100%;
+}
+
+#wiki #hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(var(--text-gradient));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#wiki #hero p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#wiki-search {
+  padding: 2rem 0;
+  background: #0a0a0a;
+  border-bottom: 1px solid #222;
+}
+
+#wiki-search .layoutboundary {
+  flex-direction: column;
+}
+
+.search-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--background-color);
+  border: 2px solid #222;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+.search-box i.la-search {
+  font-size: 1.5rem;
+  color: #666;
+  margin-right: 0.75rem;
+}
+
+.search-box input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1rem;
+  outline: none;
+  font-family: "Maven Pro", sans-serif;
+}
+
+.search-box input::placeholder {
+  color: #666;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.clear-btn:hover {
+  color: var(--primary-color);
+}
+
+.search-results {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: var(--background-color);
+  border: 2px solid #222;
+  border-radius: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.search-result-item {
+  padding: 1rem;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background: #1a1a1a;
+}
+
+.search-result-item h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.search-result-item p {
+  margin: 0;
+  color: #999;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.search-result-item .category-badge {
+  display: inline-block;
+  background: rgba(255, 0, 0, 0.2);
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.no-results {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+#wiki-content {
+  padding: 3rem 0;
+  min-height: 60vh;
+}
+
+#wiki-content .layoutboundary {
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.wiki-sidebar {
+  flex: 0 0 280px;
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.wiki-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wiki-sidebar::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 3px;
+}
+
+.wiki-sidebar::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+.wiki-sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+.sidebar-section {
+  margin-bottom: 2rem;
+}
+
+.sidebar-section h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #666;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.wiki-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wiki-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.wiki-nav a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: #999;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.wiki-nav a:hover {
+  color: var(--text-color);
+  background: #1a1a1a;
+}
+
+.wiki-nav a.active {
+  color: var(--primary-color);
+  background: rgba(255, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+.wiki-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.wiki-article {
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 2.5rem;
+  min-height: 400px;
+}
+
+.welcome-message {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.welcome-message i {
+  font-size: 4rem;
+  color: var(--primary-color);
+  opacity: 0.3;
+  margin-bottom: 1rem;
+}
+
+.welcome-message h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(var(--text-gradient));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.welcome-message p {
+  color: #999;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.quick-links {
+  margin-top: 3rem;
+}
+
+.quick-links h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.popular-articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.popular-article-card {
+  background: var(--background-color);
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.popular-article-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.2);
+}
+
+.popular-article-card h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.popular-article-card p {
+  margin: 0;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.article-header {
+  border-bottom: 2px solid #222;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.article-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(var(--text-gradient));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.article-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.article-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.article-category {
+  display: inline-block;
+  background: rgba(255, 0, 0, 0.2);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.article-content {
+  line-height: 1.8;
+  color: #ccc;
+}
+
+.article-content h2 {
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem;
+  color: var(--text-color);
+}
+
+.article-content h3 {
+  font-size: 1.4rem;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--text-color);
+}
+
+.article-content p {
+  margin-bottom: 1rem;
+}
+
+.article-content ul,
+.article-content ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.article-content li {
+  margin-bottom: 0.5rem;
+}
+
+.article-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.article-content a:hover {
+  border-bottom-color: var(--primary-color);
+}
+
+.article-content code {
+  background: var(--background-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+  color: var(--primary-color);
+}
+
+.article-content pre {
+  background: var(--background-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid #222;
+  margin: 1.5rem 0;
+}
+
+.article-content pre code {
+  background: none;
+  padding: 0;
+  color: #ccc;
+}
+
+.info-box {
+  background: rgba(0, 123, 255, 0.1);
+  border-left: 4px solid #007bff;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+}
+
+.info-box.warning {
+  background: rgba(255, 193, 7, 0.1);
+  border-left-color: #ffc107;
+}
+
+.info-box.error {
+  background: rgba(255, 0, 0, 0.1);
+  border-left-color: var(--primary-color);
+}
+
+.info-box.success {
+  background: rgba(40, 167, 69, 0.1);
+  border-left-color: #28a745;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.article-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #222;
+  gap: 1rem;
+}
+
+.article-nav-link {
+  flex: 1;
+  padding: 1rem;
+  background: var(--background-color);
+  border: 1px solid #222;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.article-nav-link:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.article-nav-link.prev {
+  text-align: left;
+}
+
+.article-nav-link.next {
+  text-align: right;
+}
+
+.article-nav-link span {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.article-nav-link strong {
+  display: block;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.breadcrumbs {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumbs a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+  color: var(--primary-color);
+}
+
+.breadcrumbs span {
+  color: #444;
+  margin: 0 0.5rem;
+}
+
+@media (max-width: 968px) {
+  #wiki-content .layoutboundary {
+    flex-direction: column;
+  }
+
+  .wiki-sidebar {
+    position: relative;
+    top: 0;
+    flex: 1 100%;
+    max-height: none;
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .wiki-article {
+    padding: 1.5rem;
+  }
+
+  .article-header h1 {
+    font-size: 2rem;
+  }
+
+  .popular-articles {
+    grid-template-columns: 1fr;
+  }
+
+  .article-navigation {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  #wiki #hero {
+    padding: 4rem 0 2rem;
+  }
+
+  #wiki #hero h1 {
+    font-size: 2rem;
+  }
+
+  #wiki #hero p {
+    font-size: 1rem;
+  }
+
+  .search-box {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .wiki-article {
+    padding: 1rem;
+  }
+
+  .article-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .article-content h3 {
+    font-size: 1.25rem;
+  }
+}
+
+.author-box {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a1a1a 0%, #101010 100%);
+  border: 2px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.author-box-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #333;
+}
+
+.author-box-header i {
+  font-size: 1.5rem;
+  color: var(--primary-color, #ff0000);
+}
+
+.author-box-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #e0e0e0;
+  font-weight: 600;
+}
+
+.author-box-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.author-avatar {
+  flex-shrink: 0;
+}
+
+.author-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color, #ff0000);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+  background: #2a2a2a;
+}
+
+.author-info {
+  flex: 1;
+}
+
+.author-info h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.25rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.author-role {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  color: var(--primary-color, #ff0000);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.author-bio {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  color: #b0b0b0;
+}
+
+.author-social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.author-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary-color, #ff0000);
+  color: white;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+}
+
+.author-social a:hover {
+  background: #cc0000;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.5);
+}
+
+.article-meta span {
+  color: #b0b0b0;
+}
+
+.article-meta span i {
+  color: var(--primary-color, #ff0000);
+}
+
+@media (max-width: 768px) {
+  .author-box {
+    padding: 1.5rem;
+  }
+
+  .author-box-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .author-avatar img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .author-social {
+    justify-content: center;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.author-box {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Table of Contents Styles */
+.table-of-contents {
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  position: sticky;
+  top: 20px;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.table-of-contents.collapsed {
+  padding: 0;
+  width: 94px;
+  overflow: hidden;
+}
+
+.table-of-contents.collapsed .toc-header {
+  padding: 0.75rem;
+  border-bottom: none;
+  margin-bottom: 0;
+  justify-content: center;
+}
+
+.table-of-contents.collapsed .toc-header h3,
+.table-of-contents.collapsed .toc-list {
+  display: none;
+}
+
+.table-of-contents.collapsed .toc-toggle {
+  margin-left: 0;
+}
+
+.toc-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #222;
+  position: relative;
+}
+
+.toc-header i.la-list {
+  font-size: 1.5rem;
+  color: var(--primary-color, #ff0000);
+}
+
+.toc-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color, #e0e0e0);
+  flex: 1;
+}
+
+.toc-toggle {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+}
+
+.toc-toggle:hover {
+  background: #1a1a1a;
+  color: var(--primary-color, #ff0000);
+}
+
+.toc-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.table-of-contents.collapsed .toc-toggle i {
+  transform: rotate(180deg);
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-item,
+.toc-item-sub {
+  margin: 0.5rem 0;
+}
+
+.toc-item {
+  font-weight: 500;
+}
+
+.toc-item-sub {
+  margin-left: 1.5rem;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.toc-list a {
+  color: #999;
+  text-decoration: none;
+  display: block;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.toc-list a:hover {
+  background: #1a1a1a;
+  color: var(--text-color, #e0e0e0);
+  padding-left: 1rem;
+}
+
+.toc-list a.active {
+  background: rgba(255, 0, 0, 0.1);
+  color: var(--primary-color, #ff0000);
+  font-weight: 600;
+}
+
+/* Info Box Content Styling - ensure markdown works inside */
+.info-box-content {
+  padding: 0.5rem;
+}
+
+.info-box-content p {
+  margin: 0.5rem;
+}
+
+.info-box-content p:first-child {
+  margin-top: 0;
+}
+
+.info-box-content p:last-child {
+  margin-bottom: 0;
+}
+
+.info-box-content strong {
+  font-weight: 600;
+  color: var(--text-color, #e0e0e0);
+}
+
+.info-box-content em {
+  font-style: italic;
+}
+
+.info-box-content code {
+  background: var(--background-color, #000);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+  color: var(--primary-color, #ff0000);
+  border: 1px solid #222;
+}
+
+.info-box-content pre {
+  background: var(--background-color, #000);
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  border: 1px solid #222;
+  margin: 0.75rem 0;
+}
+
+.info-box-content pre code {
+  background: none;
+  padding: 0;
+  border: none;
+  color: #ccc;
+  font-size: 0.9em;
+}
+
+.info-box-content ul,
+.info-box-content ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.info-box-content li {
+  margin: 0.25rem 0;
+}
+
+/* Mobile: Hide TOC */
+@media (max-width: 768px) {
+  .table-of-contents {
+    display: none;
+  }
+}
+
+/* Desktop: Float TOC to the right */
+@media (min-width: 769px) {
+  .wiki-main {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+    align-items: start;
+    transition: grid-template-columns 0.3s ease;
+  }
+
+  .wiki-main.toc-collapsed {
+    grid-template-columns: 1fr 48px;
+  }
+
+  .wiki-article {
+    grid-column: 1;
+  }
+
+  .table-of-contents {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+}
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Highlight target heading when scrolled to */
+.article-content h2:target,
+.article-content h3:target {
+  animation: highlight-flash 1s ease;
+}
+
+@keyframes highlight-flash {
+  0%,
+  100% {
+    background: transparent;
+  }
+  50% {
+    background: rgba(255, 0, 0, 0.1);
+    padding-left: 1rem;
+    margin-left: -1rem;
+    border-radius: 4px;
+  }
+}
+
+/* Custom scrollbar for TOC on desktop */
+@media (min-width: 769px) {
+  .table-of-contents::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .table-of-contents::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 3px;
+  }
+
+  .table-of-contents::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+  }
+
+  .table-of-contents::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color, #ff0000);
+  }
+}

@@ -1,0 +1,418 @@
+/* ===== Markdown Content Styles ===== */
+
+/* Info Boxes from Markdown */
+.article-content .info-box {
+  padding: 0;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  border-left: 4px solid;
+  overflow: hidden;
+}
+
+.article-content .info-box-header {
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.article-content .info-box-header i {
+  font-size: 1.3rem;
+}
+
+.article-content .info-box-title {
+  font-weight: 700;
+}
+
+.article-content .info-box > p,
+.article-content .info-box > ul,
+.article-content .info-box > ol,
+.article-content .info-box > pre,
+.article-content .info-box > blockquote {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-top: 0;
+}
+
+.article-content .info-box > p:first-of-type {
+  padding-top: 1rem;
+}
+
+.article-content .info-box > p:last-child,
+.article-content .info-box > ul:last-child,
+.article-content .info-box > ol:last-child {
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+}
+
+.article-content .info-box > p + p {
+  margin-top: 1rem;
+}
+
+/* Info Box (Blue) */
+.article-content .info-box.info {
+  background: rgba(0, 123, 255, 0.05);
+  border-left-color: #007bff;
+}
+
+.article-content .info-box.info .info-box-header {
+  background: rgba(0, 123, 255, 0.15);
+  color: #4da3ff;
+}
+
+.article-content .info-box.info .info-box-header i {
+  color: #007bff;
+}
+
+/* Warning Box (Yellow) */
+.article-content .info-box.warning {
+  background: rgba(255, 193, 7, 0.05);
+  border-left-color: #ffc107;
+}
+
+.article-content .info-box.warning .info-box-header {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffd54f;
+}
+
+.article-content .info-box.warning .info-box-header i {
+  color: #ffc107;
+}
+
+/* Error Box (Red) */
+.article-content .info-box.error {
+  background: rgba(255, 0, 0, 0.05);
+  border-left-color: var(--primary-color);
+}
+
+.article-content .info-box.error .info-box-header {
+  background: rgba(255, 0, 0, 0.15);
+  color: #ff6b6b;
+}
+
+.article-content .info-box.error .info-box-header i {
+  color: var(--primary-color);
+}
+
+/* Success Box (Green) */
+.article-content .info-box.success {
+  background: rgba(40, 167, 69, 0.05);
+  border-left-color: #28a745;
+}
+
+.article-content .info-box.success .info-box-header {
+  background: rgba(40, 167, 69, 0.15);
+  color: #5cb85c;
+}
+
+.article-content .info-box.success .info-box-header i {
+  color: #28a745;
+}
+
+/* Tip Box (Purple) */
+.article-content .info-box.tip {
+  background: rgba(155, 89, 182, 0.05);
+  border-left-color: #9b59b6;
+}
+
+.article-content .info-box.tip .info-box-header {
+  background: rgba(155, 89, 182, 0.15);
+  color: #c39bd3;
+}
+
+.article-content .info-box.tip .info-box-header i {
+  color: #9b59b6;
+}
+
+/* Blockquotes (fallback) */
+.article-content blockquote {
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  border-left: 4px solid #666;
+  background: rgba(100, 100, 100, 0.1);
+  font-style: italic;
+}
+
+.article-content blockquote p:first-child {
+  margin-top: 0;
+}
+
+.article-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tables from Markdown */
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: var(--background-color);
+  border: 1px solid #222;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.article-content table thead {
+  background: #1a1a1a;
+}
+
+.article-content table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #222;
+  color: var(--text-color);
+}
+
+.article-content table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #222;
+  color: #ccc;
+}
+
+.article-content table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.article-content table tbody tr:hover {
+  background: rgba(255, 0, 0, 0.05);
+}
+
+/* Horizontal Rules */
+.article-content hr {
+  border: none;
+  border-top: 2px solid #222;
+  margin: 2rem 0;
+}
+
+/* Task Lists */
+.article-content input[type="checkbox"] {
+  margin-right: 0.5rem;
+  accent-color: var(--primary-color);
+}
+
+/* Images */
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #222;
+  margin: 1.5rem 0;
+}
+
+/* Inline Code Adjustments */
+.article-content :not(pre) > code {
+  background: var(--background-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+  color: var(--primary-color);
+  border: 1px solid #222;
+}
+
+/* Code Blocks */
+.article-content pre {
+  background: var(--background-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid #222;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.article-content pre code {
+  background: none;
+  padding: 0;
+  color: #ccc;
+  border: none;
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+/* Scrollbar for code blocks */
+.article-content pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.article-content pre::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.article-content pre::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.article-content pre::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Strong emphasis */
+.article-content strong {
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+/* Emphasized text */
+.article-content em {
+  color: #ccc;
+  font-style: italic;
+}
+
+/* Strikethrough */
+.article-content del {
+  color: #666;
+  text-decoration: line-through;
+}
+
+/* Definition Lists */
+.article-content dl {
+  margin: 1.5rem 0;
+}
+
+.article-content dt {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-top: 1rem;
+}
+
+.article-content dd {
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+/* Footnotes */
+.article-content .footnotes {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #222;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.article-content .footnotes ol {
+  padding-left: 2rem;
+}
+
+/* Keyboard Keys */
+.article-content kbd {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  font-family: monospace;
+  font-size: 0.85em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Abbreviations */
+.article-content abbr {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* Mark/Highlight */
+.article-content mark {
+  background: rgba(255, 193, 7, 0.3);
+  color: var(--text-color);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+}
+
+/* Superscript & Subscript */
+.article-content sup,
+.article-content sub {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.article-content sup {
+  top: -0.5em;
+}
+
+.article-content sub {
+  bottom: -0.25em;
+}
+
+/* Details/Summary (Collapsible) */
+.article-content details {
+  background: var(--background-color);
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.article-content summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-color);
+  user-select: none;
+}
+
+.article-content summary:hover {
+  color: var(--primary-color);
+}
+
+.article-content details[open] summary {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #222;
+}
+
+.article-content figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.article-content figcaption {
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.article-content a.external-link {
+  position: relative;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.article-content a.external-link i {
+  font-size: 0.95em;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.article-content li a.external-link {
+  font-weight: 500;
+}
+
+.article-content table a.external-link {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .article-content a.external-link {
+    padding-right: 1.3rem;
+  }
+
+  .article-content a.external-link i {
+    font-size: 0.9em;
+  }
+}
