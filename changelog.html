@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmergencyForge › Changelog</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/style.min.css" />
+    <link rel="stylesheet" href="/assets/fonts/lineawesome/css/line-awesome.min.css" />
+    <link rel="stylesheet" href="/assets/fonts/mavenpro/css/all.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <!-- Metas -->
+    <meta name="theme-color" content="#ff0000" />
+    <meta property="og:site_name" content="emergencyforge.de" />
+    <meta property="og:url" content="https://emergencyforge.de/changelog.html" />
+    <meta property="og:title" content="Changelog - EmergencyForge" />
+    <meta property="og:image" content="https://emergencyforge.de/assets/img/1.png" />
+    <meta property="og:description" content="Alle Updates und Änderungen an intraRP, intraTab und dem Setup." />
+    <meta name="description" content="Alle Updates und Änderungen an intraRP, intraTab und dem Setup." />
+    <meta name="keywords" content="EmergencyForge, intraRP, Changelog, Updates, Versionen, intraTab, Setup" />
+    <!-- Cookie Consent -->
+    <script
+        src="https://cloud.ccm19.de/app.js?apiKey=5bfde08724de7b7282f3829db19409726f36d0782d862a3c&amp;domain=68ff7857fc951d2dee0ed452"
+        referrerpolicy="origin"></script>
+</head>
+
+<body id="changelog-page">
+    <main>
+        <nav>
+            <div class="layoutboundary">
+                <a href="/" class="logo">
+                    <img src="/assets/img/defaultLogo.webp" alt="intraRP Logo" height="48px" width="auto" />
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Zurück zur Startseite</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section id="hero">
+            <div class="layoutboundary">
+                <h1>CHANGELOG</h1>
+                <p>Alle Updates und Änderungen an intraRP, intraTab und dem Setup</p>
+            </div>
+        </section>
+
+        <div class="floating-buttons">
+            <button class="fab setup-fab" id="setup-fab" aria-label="Setup Info">
+                <i class="las la-rocket"></i>
+                <span class="fab-tooltip">Einfache Installation</span>
+            </button>
+            <button class="fab community-fab" id="community-fab" aria-label="Community Info">
+                <i class="lab la-discord"></i>
+                <span class="fab-tooltip">Community & Support</span>
+            </button>
+        </div>
+
+        <div class="modal" id="setup-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Schließen">
+                    <i class="las la-times"></i>
+                </button>
+                <div class="modal-icon setup-icon">
+                    <i class="las la-rocket"></i>
+                </div>
+                <h2 class="modal-title">Schnelle Installation mit unserem Setup</h2>
+                <p class="modal-description">
+                    Starte in wenigen Minuten! Unser Setup-Tool hilft dir bei der Konfiguration von intraRP und intraTab
+                    für deinen FiveM-Server. Einfach herunterladen, ausführen und loslegen!
+                </p>
+                <div class="modal-features">
+                    <div class="modal-feature">
+                        <i class="las la-check-circle"></i>
+                        <span>Einfache Konfiguration</span>
+                    </div>
+                    <div class="modal-feature">
+                        <i class="las la-check-circle"></i>
+                        <span>API-Key Generierung</span>
+                    </div>
+                    <div class="modal-feature">
+                        <i class="las la-check-circle"></i>
+                        <span>Fertig in wenigen Minuten</span>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <a href="https://github.com/EmergencyForge/intraRP-Setup/releases/latest" class="modal-button"
+                        target="_blank">
+                        <i class="las la-download"></i>
+                        Setup herunterladen
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="community-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" aria-label="Schließen">
+                    <i class="las la-times"></i>
+                </button>
+                <div class="modal-icon community-icon">
+                    <i class="lab la-discord"></i>
+                </div>
+                <h2 class="modal-title">Unterstütze das Projekt</h2>
+                <p class="modal-description">
+                    Werde Teil unserer Community! Erhalte Support, teile Feedback und gestalte die
+                    Zukunft von intraRP mit. Auf unserem Discord-Server helfen wir dir bei Fragen und freuen uns
+                    über jeden Beitrag zum Projekt.
+                </p>
+                <div class="modal-features">
+                    <div class="modal-feature">
+                        <i class="las la-check-circle"></i>
+                        <span>Schneller Support</span>
+                    </div>
+                    <div class="modal-feature">
+                        <i class="las la-check-circle"></i>
+                        <span>Updates & News</span>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <a href="https://discord.intrarp.de" class="modal-button discord-button" target="_blank">
+                        <i class="lab la-discord"></i>
+                        Discord beitreten
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section id="changelog-content">
+            <div class="changelog-container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Alle</button>
+                    <button class="filter-btn" data-filter="intraRP">intraRP</button>
+                    <button class="filter-btn" data-filter="intraTab">intraTab</button>
+                    <button class="filter-btn" data-filter="Setup">Setup</button>
+                </div>
+
+                <!-- Neuster Changelog Eintrag -->
+                <div class="changelog-entry latest" data-project="intraRP">
+                    <div class="changelog-header">
+                        <div>
+                            <div class="changelog-project">intraRP Update</div>
+                            <h2 class="changelog-title">Version 0.4.4.8</h2>
+                        </div>
+                    </div>
+                    <div class="changelog-date">
+                        <i class="las la-calendar"></i> 13. Oktober 2025
+                    </div>
+
+                    <div class="changelog-content">
+                        <div class="changelog-section">
+                            <h3 class="changelog-section-title">
+                                <i class="las la-plus-circle"></i> Hinzugefügt
+                            </h3>
+                            <ul>
+                                <li>Neuer Sperrbildschirm mit PIN für das eNOTF <a
+                                        href="https://github.com/EmergencyForge/intraRP/pull/114" class="pr-ref"
+                                        target="_blank" title="PR #114"><i class="las la-code-branch"></i>#114</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="changelog-section">
+                            <h3 class="changelog-section-title">
+                                <i class="las la-edit"></i> Geändert
+                            </h3>
+                            <ul>
+                                <li>Überarbeitung der Protokollansicht im eNOTF <a
+                                        href="https://github.com/EmergencyForge/intraRP/pull/114" class="pr-ref"
+                                        target="_blank" title="PR #114"><i class="las la-code-branch"></i>#114</a></li>
+                                <li>Überarbeitung der eNOTF Variablen <a
+                                        href="https://github.com/EmergencyForge/intraRP/pull/114" class="pr-ref"
+                                        target="_blank" title="PR #114"><i class="las la-code-branch"></i>#114</a></li>
+                            </ul>
+                        </div>
+
+                        <a href="https://github.com/EmergencyForge/intraRP/releases/tag/v0.4.4.8" class="changelog-link"
+                            target="_blank">
+                            <i class="las la-download"></i> Download v0.4.4.8
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Changelog Eintrag -->
+                <div class="changelog-entry collapsed" data-project="intraRP">
+                    <div class="changelog-header">
+                        <div>
+                            <div class="changelog-project">intraRP Update</div>
+                            <h2 class="changelog-title">Version 0.4.4.7</h2>
+                        </div>
+                        <button class="changelog-toggle" aria-label="Toggle Details">
+                            <i class="las la-angle-down"></i>
+                        </button>
+                    </div>
+                    <div class="changelog-date">
+                        <i class="las la-calendar"></i> 11. Oktober 2025
+                    </div>
+
+                    <div class="changelog-content">
+                        <div class="changelog-section">
+                            <h3 class="changelog-section-title">
+                                <i class="las la-plus-circle"></i> Hinzugefügt
+                            </h3>
+                            <ul>
+                                <li>Neue Protokollansicht und PDF-Export für eNOTF <a
+                                        href="https://github.com/EmergencyForge/intraRP/pull/112" class="pr-ref"
+                                        target="_blank" title="PR #112"><i class="las la-code-branch"></i>#112</a></li>
+                            </ul>
+                        </div>
+
+                        <a href="https://github.com/EmergencyForge/intraRP/releases/tag/v0.4.4.7" class="changelog-link"
+                            target="_blank">
+                            <i class="las la-download"></i> Download v0.4.4.7
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Changelog Eintrag -->
+                <div class="changelog-entry collapsed" data-project="intraRP">
+                    <div class="changelog-header">
+                        <div>
+                            <div class="changelog-project">intraRP Update</div>
+                            <h2 class="changelog-title">Version 0.4.4.6</h2>
+                        </div>
+                        <button class="changelog-toggle" aria-label="Toggle Details">
+                            <i class="las la-angle-down"></i>
+                        </button>
+                    </div>
+                    <div class="changelog-date">
+                        <i class="las la-calendar"></i> 09. Oktober 2025
+                    </div>
+
+                    <div class="changelog-content">
+                        <div class="changelog-section">
+                            <h3 class="changelog-section-title">
+                                <i class="las la-plus-circle"></i> Hinzugefügt
+                            </h3>
+                            <ul>
+                                <li>Neue Möglichkeit zur Synchronisation mit EmergencyDispatch von Love RP Scripts <a
+                                        href="https://github.com/EmergencyForge/intraRP/pull/109" class="pr-ref"
+                                        target="_blank" title="PR #109"><i class="las la-code-branch"></i>#109</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="changelog-section">
+                            <h3 class="changelog-section-title">
+                                <i class="las la-edit"></i> Geändert
+                            </h3>
+                            <ul>
+                                <li>Fehler bei der Webhook-Übermittlung von Bildern behoben <a
+                                        href="https://github.com/EmergencyForge/intraRP/pull/110" class="pr-ref"
+                                        target="_blank" title="PR #110"><i class="las la-code-branch"></i>#110</a></li>
+                            </ul>
+                        </div>
+
+                        <a href="https://github.com/EmergencyForge/intraRP/releases/tag/v0.4.4.6" class="changelog-link"
+                            target="_blank">
+                            <i class="las la-download"></i> Download v0.4.4.6
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Changelog Eintrag -->
+                <div class="changelog-entry collapsed" data-project="intraTab">
+                    <div class="changelog-header">
+                        <div>
+                            <div class="changelog-project">intraTab Update</div>
+                            <h2 class="changelog-title">Version 1.2.0</h2>
+                        </div>
+                        <button class="changelog-toggle" aria-label="Toggle Details">
+                            <i class="las la-angle-down"></i>
+                        </button>
+                    </div>
+                    <div class="changelog-date">
+                        <i class="las la-calendar"></i> 09. Oktober 2025
+                    </div>
+
+                    <div class="changelog-content">
+                        <div class="changelog-section">
+                            <h3 class="changelog-section-title">
+                                <i class="las la-plus-circle"></i> Hinzugefügt
+                            </h3>
+                            <ul>
+                                <li>Unterstützung für EmergencyDispatch Synchronisation <a
+                                        href="https://github.com/EmergencyForge/intraTab/commit/9b0dd36d09b84073100c1a2242765d301d966f31"
+                                        class="commit-ref" target="_blank" title="Commit 9b0dd36"><i
+                                            class="las la-code-branch"></i>9b0dd36</a></li>
+                                <li>Möglichkeit Item vorauszusetzen um Tablet zu öffnen <a
+                                        href="https://github.com/EmergencyForge/intraTab/commit/4f40ed9b236972178bf4458f14efc9549ec6beba"
+                                        class="commit-ref" target="_blank" title="Commit 4f40ed9"><i
+                                            class="las la-code-branch"></i>4f40ed9</a></li>
+                            </ul>
+                        </div>
+
+                        <a href="https://github.com/EmergencyForge/intraTab/releases/tag/v1.2.0" class="changelog-link"
+                            target="_blank">
+                            <i class="las la-download"></i> Download v1.2.0
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Changelog Eintrag -->
+                <div class="changelog-entry collapsed" data-project="Setup">
+                    <div class="changelog-header">
+                        <div>
+                            <div class="changelog-project">Setup Update</div>
+                            <h2 class="changelog-title">Version 0.1.1</h2>
+                        </div>
+                        <button class="changelog-toggle" aria-label="Toggle Details">
+                            <i class="las la-angle-down"></i>
+                        </button>
+                    </div>
+                    <div class="changelog-date">
+                        <i class="las la-calendar"></i> 09. Oktober 2025
+                    </div>
+
+                    <div class="changelog-content">
+                        <div class="changelog-section">
+                            <h3 class="changelog-section-title">
+                                <i class="las la-plus-circle"></i> Hinzugefügt
+                            </h3>
+                            <ul>
+                                <li>Generierung eines API-Keys hinzugefügt <a
+                                        href="https://github.com/EmergencyForge/intraRP-Setup/commit/ed77e87cdeea8bf5169b497699b0cff121f7bb19"
+                                        class="commit-ref" target="_blank" title="Commit ed77e87"><i
+                                            class="las la-code-branch"></i>ed77e87</a></li>
+                            </ul>
+                        </div>
+
+                        <a href="https://github.com/EmergencyForge/intraRP-Setup/releases/tag/v0.1.1"
+                            class="changelog-link" target="_blank">
+                            <i class="las la-download"></i> Download v0.1.1
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer__content">
+            <p>&copy; 2025 EmergencyForge. Alle Rechte vorbehalten.</p>
+            <p>
+                EmergencyForge, intraRP und intraTab sind nicht-kommerzielle Open-Source-Projekte.
+            </p>
+            <p><a href="/impressum.html">Impressum</a> | <a href="/datenschutz.html">Datenschutz</a></p>
+            <p style="font-weight: bold;">Folge uns auf</p>
+            <div class="footer__links">
+                <a href="https://github.com/EmergencyForge" title="GitHub" target="_blank"><i
+                        class="lab la-github"></i></a>
+                <a href="https://discord.intrarp.de" title="Discord" target="_blank"><i class="lab la-discord"></i></a>
+                <a href="https://www.youtube.com/@emergencyforge" title="YouTube" target="_blank"><i
+                        class="lab la-youtube"></i></a>
+                <a href="https://www.tiktok.com/@emergencyforge" title="TikTok" target="_blank"><i
+                        class="las la-video"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                nav.classList.add('nav--scrolled');
+            } else {
+                nav.classList.remove('nav--scrolled');
+            }
+        });
+
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const changelogEntries = document.querySelectorAll('.changelog-entry');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                changelogEntries.forEach(entry => {
+                    if (filter === 'all') {
+                        entry.style.display = 'block';
+                    } else {
+                        const project = entry.getAttribute('data-project');
+                        if (project === filter) {
+                            entry.style.display = 'block';
+                        } else {
+                            entry.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        changelogEntries.forEach(entry => {
+            if (entry.classList.contains('latest')) {
+                return;
+            }
+
+            const toggleButton = entry.querySelector('.changelog-toggle');
+
+            if (toggleButton) {
+                toggleButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    entry.classList.toggle('collapsed');
+                });
+            }
+
+            entry.addEventListener('click', () => {
+                if (entry.classList.contains('collapsed')) {
+                    entry.classList.remove('collapsed');
+                }
+            });
+        });
+
+        const setupFab = document.getElementById('setup-fab');
+        const communityFab = document.getElementById('community-fab');
+        const setupModal = document.getElementById('setup-modal');
+        const communityModal = document.getElementById('community-modal');
+        const modalCloses = document.querySelectorAll('.modal-close');
+        const modalOverlays = document.querySelectorAll('.modal-overlay');
+
+        setupFab.addEventListener('click', () => {
+            setupModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        communityFab.addEventListener('click', () => {
+            communityModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        modalCloses.forEach(close => {
+            close.addEventListener('click', () => {
+                setupModal.classList.remove('active');
+                communityModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        modalOverlays.forEach(overlay => {
+            overlay.addEventListener('click', () => {
+                setupModal.classList.remove('active');
+                communityModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // ESC key to close modals
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                setupModal.classList.remove('active');
+                communityModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+
+</html>
