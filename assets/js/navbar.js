@@ -96,41 +96,91 @@ document.addEventListener("DOMContentLoaded", function () {
     return anchorLinkCount > 2;
   }
   function handleOnePageNavigation() {
-    const sections = document.querySelectorAll("section[id]");
     const navLinkItems = document.querySelectorAll(".nav-links a");
-    const observerOptions = {
-      threshold: 0.3,
-      rootMargin: "-100px 0px -60% 0px",
-    };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const sectionId = entry.target.getAttribute("id");
-          navLinkItems.forEach((link) => {
-            link.classList.remove("active");
-          });
-          const activeLink = document.querySelector(
-            `.nav-links a[href="/#${sectionId}"], .nav-links a[href="#${sectionId}"]`
-          );
-          if (activeLink) {
-            activeLink.classList.add("active");
-          }
+    let activeSection = null;
+    let isScrolling = false;
+
+    const navSectionIds = Array.from(navLinkItems)
+      .map((link) => {
+        const href = link.getAttribute("href");
+        if (href?.includes("#")) {
+          return href.includes("/#") ? href.split("/#")[1] : href.split("#")[1];
         }
-      });
-    }, observerOptions);
-    sections.forEach((section) => {
-      observer.observe(section);
+        return null;
+      })
+      .filter((id) => id !== null);
+
+    const sections = document.querySelectorAll("section[id]");
+    const relevantSections = Array.from(sections).filter((section) =>
+      navSectionIds.includes(section.getAttribute("id"))
+    );
+
+    function updateActiveNavLink(sectionId) {
+      if (activeSection !== sectionId) {
+        activeSection = sectionId;
+
+        navLinkItems.forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        const activeLink = document.querySelector(
+          `.nav-links a[href="/#${sectionId}"], .nav-links a[href="#${sectionId}"]`
+        );
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
+      }
+    }
+
+    function getCurrentSection() {
+      const scrollPosition = window.pageYOffset + 200;
+      let currentSectionId = "hero";
+
+      for (const section of relevantSections) {
+        const sectionTop =
+          section.getBoundingClientRect().top + window.pageYOffset;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          currentSectionId = section.getAttribute("id");
+          break;
+        } else if (scrollPosition >= sectionTop) {
+          currentSectionId = section.getAttribute("id");
+        }
+      }
+
+      return currentSectionId;
+    }
+
+    let scrollTimeout;
+    window.addEventListener("scroll", () => {
+      if (!isScrolling) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          const currentSectionId = getCurrentSection();
+          updateActiveNavLink(currentSectionId);
+        }, 50);
+      }
     });
+
+    updateActiveNavLink(getCurrentSection());
+
     navLinkItems.forEach((link) => {
       if (link.getAttribute("href")?.includes("#")) {
         link.addEventListener("click", function (e) {
+          e.preventDefault();
+
           const href = this.getAttribute("href");
           const targetId = href.includes("/#")
             ? href.split("/#")[1]
             : href.split("#")[1];
           const target = document.getElementById(targetId);
+
           if (target) {
-            e.preventDefault();
+            isScrolling = true;
+
+            updateActiveNavLink(targetId);
+
             const nav = document.querySelector("nav");
             const navHeight = nav ? nav.offsetHeight : 0;
             const targetPosition =
@@ -138,10 +188,16 @@ document.addEventListener("DOMContentLoaded", function () {
               window.pageYOffset -
               navHeight -
               20;
+
             window.scrollTo({
               top: targetPosition,
               behavior: "smooth",
             });
+
+            setTimeout(() => {
+              isScrolling = false;
+            }, 1000);
+
             history.pushState(null, null, href);
             closeMobileMenu();
           }
