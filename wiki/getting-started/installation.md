@@ -130,5 +130,5 @@ Geschafft! IntraRP ist nun installiert und einsatzbereit. Du kannst dich nun mit
 Bei Problemen:
 
 - **GitHub Issues**: https://github.com/EmergencyForge/intraRP/issues
-- **Discord**: https://discord.intrarp.de
+- **Discord**: https://emforge.app/dc
 - **Dokumentation**: https://emergencyforge.de/wiki.html
