@@ -25,5 +25,14 @@
     "file": "discord-app-erstellen.md",
     "tags": ["discord", "oauth", "authentifizierung", "setup"],
     "popular": true
+  },
+  {
+    "slug": "login-mode",
+    "title": "Registrierungsmodus-Konfiguration",
+    "description": "Anleitung und Informationen zu den verschiedenen Registrierungsmodi in intraRP",
+    "category": "intrarp",
+    "file": "login-mode.md",
+    "tags": ["registrierung", "login", "authentifizierung", "modus"],
+    "popular": false
   }
 ]
