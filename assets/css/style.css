@@ -1508,6 +1508,247 @@ section#intratab {
   text-transform: uppercase;
 }
 
+#partners {
+  padding: 4rem 0;
+  position: relative;
+}
+
+#partners::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  animation: scanline 8s linear infinite;
+}
+
+.partners-testimonials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto;
+  max-width: 900px;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.testimonial-item {
+  width: 100%;
+}
+
+.testimonial-bubble {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem 2.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.testimonial-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgba(255, 255, 255, 0.05);
+  transition: border-top-color 0.3s ease;
+}
+
+.testimonial-bubble p {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e0e4f1;
+  font-style: italic;
+  text-align: center;
+}
+
+.testimonial-footer {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.testimonial-author {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.testimonial-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.2rem;
+  color: #878787;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-rating i {
+  transition: transform 0.2s ease;
+}
+
+@keyframes starPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+.testimonial-rating i:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.testimonial-rating i:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.testimonial-rating i:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.testimonial-rating i:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.testimonial-rating i:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.partners-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin: 3rem auto 0;
+  max-width: 1200px;
+  padding: 2rem 0;
+}
+
+.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+}
+
+.partner-logo img {
+  height: 60px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0) invert(1) opacity(0.6);
+  transition: all 0.3s ease;
+}
+
+.partner-logo:hover img {
+  filter: grayscale(100%) brightness(0) invert(1) opacity(1);
+  transform: scale(1.1);
+}
+
+@media (max-width: 1000px) {
+  .partners-testimonials {
+    padding: 0 1.5rem;
+  }
+
+  .testimonial-bubble {
+    padding: 1.8rem 2rem;
+  }
+
+  .testimonial-bubble p {
+    font-size: 1rem;
+  }
+
+  .partners-logos {
+    gap: 2.5rem;
+  }
+
+  .partner-logo img {
+    height: 50px;
+    max-width: 150px;
+  }
+}
+@media (max-width: 768px) {
+  .partners-testimonials {
+    padding: 0 1rem;
+    margin: 2rem auto;
+  }
+
+  .testimonial-bubble {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .testimonial-bubble p {
+    font-size: 0.95rem;
+  }
+
+  .testimonial-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .testimonial-author {
+    text-align: center;
+  }
+
+  .partners-logos {
+    gap: 2rem;
+  }
+
+  .partner-logo img {
+    height: 45px;
+    max-width: 130px;
+  }
+}
+@media (max-width: 480px) {
+  .partners-testimonials {
+    margin: 1.5rem auto;
+    padding: 0 0.5rem;
+  }
+
+  .testimonial-bubble {
+    padding: 1.2rem 1rem;
+  }
+
+  .testimonial-bubble p {
+    font-size: 0.9rem;
+  }
+
+  .testimonial-author {
+    font-size: 0.85rem;
+  }
+
+  .testimonial-rating {
+    font-size: 1rem;
+  }
+
+  .partners-logos {
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .partner-logo img {
+    height: 35px;
+    max-width: 110px;
+  }
+}
 #downloads {
   padding: 4rem 0;
   position: relative;
