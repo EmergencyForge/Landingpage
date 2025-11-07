@@ -478,7 +478,7 @@ nav.nav--scrolled .logo img {
   display: flex;
   align-items: center;
   height: 100vh;
-  background: url("/assets/img/Untitled-1756928163667.webp") center/cover no-repeat;
+  background: url("/assets/img/06112025_2.webp") center/cover no-repeat;
   color: var(--text-color);
   overflow: hidden;
   z-index: 0;
@@ -487,7 +487,7 @@ nav.nav--scrolled .logo img {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, #070707 0%, rgba(23, 23, 23, 0.6) 40%, transparent 100%);
+  background: linear-gradient(to top, #070707 0%, rgba(23, 23, 23, 0.85) 40%, rgba(0, 0, 0, 0.5) 100%);
   z-index: 1;
 }
 #hero h1 {
