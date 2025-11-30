@@ -374,6 +374,18 @@ function generateTableOfContents() {
   const articleContent = document.querySelector(".article-content");
   if (!articleContent) return;
 
+  const wikiMain = document.querySelector(".wiki-main");
+
+  // Remove existing table of contents if present
+  const existingToc = document.querySelector(".table-of-contents");
+  if (existingToc) {
+    existingToc.remove();
+    // Reset the collapsed class when TOC is removed
+    if (wikiMain) {
+      wikiMain.classList.remove("toc-collapsed");
+    }
+  }
+
   const headings = articleContent.querySelectorAll("h2, h3");
 
   if (headings.length < 2) {
@@ -420,7 +432,6 @@ function generateTableOfContents() {
   tocHTML += "</ul></nav>";
 
   // Insert TOC as sibling to wiki-article, not inside it
-  const wikiMain = document.querySelector(".wiki-main");
   const wikiArticle = document.querySelector(".wiki-article");
 
   if (wikiMain && wikiArticle) {
